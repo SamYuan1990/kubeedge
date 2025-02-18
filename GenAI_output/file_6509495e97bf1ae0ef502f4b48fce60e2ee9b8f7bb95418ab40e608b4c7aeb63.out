@@ -1,0 +1,12 @@
+{
+  "model": "deepseek-chat",
+  "final_prompt": "please help generate go doc for this function, \nfunc New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {\n\treturn &group{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}\n}",
+  "hashValue": "6509495e97bf1ae0ef502f4b48fce60e2ee9b8f7bb95418ab40e608b4c7aeb63",
+  "response": "Certainly! Below is an example of Go documentation (GoDoc) for the `New` function you provided:\n\n```go\n// New creates and returns a new instance of an Interface that implements the group functionality.\n// It initializes the group with the provided SharedInformerFactory, namespace, and TweakListOptionsFunc.\n//\n// Parameters:\n//   - f: The SharedInformerFactory used to create shared informers for the group.\n//   - namespace: The namespace to which the group is scoped. If empty, the group is not namespace-scoped.\n//   - tweakListOptions: A TweakListOptionsFunc that allows customization of list options for the informers.\n//\n// Returns:\n//   - An Interface that provides access to the group's informers and other functionalities.\nfunc New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {\n\treturn &group{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}\n}\n```\n\n### Explanation:\n- **Function Name**: `New` is a constructor function that creates and returns a new instance of an `Interface`.\n- **Parameters**:\n  - `f`: A `SharedInformerFactory` that is used to create shared informers for the group.\n  - `namespace`: A string representing the namespace to which the group is scoped. If empty, the group is not namespace-scoped.\n  - `tweakListOptions`: A `TweakListOptionsFunc` that allows customization of list options for the informers.\n- **Returns**: An `Interface` that provides access to the group's informers and other functionalities.\n\nThis documentation follows the standard GoDoc format, providing a clear description of the function, its parameters, and its return value.",
+  "prompt_precent": 17.09090909090909,
+  "content_precent": 82.54545454545455,
+  "meta": {
+    "filename": "staging/src/github.com/kubeedge/api/client/informers/externalversions/reliablesyncs/interface.go",
+    "functionname": "New"
+  }
+}
