@@ -31,6 +31,7 @@ jobs:
         id: unittest
         run: |
           make test PROFILE=y
+          wget https://raw.githubusercontent.com/SamYuan1990/OpenAI_CodeAgent-action/refs/heads/main/goASTBin -O ./goASTBin && chmod a+x ./goASTBin
 
       - name: Test Local Action
         id: test-action
@@ -42,6 +43,11 @@ jobs:
           dirPath: ./
           maxIterations: 3
           runType: godoc
+
+      - name: cleanup
+        id: cleanup
+        run: |
+          rm -rf ./goASTBin
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
