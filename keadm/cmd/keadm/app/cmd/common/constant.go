@@ -126,7 +126,7 @@ const (
 	DefaultK8SMinimumVersion = 11
 
 	// DefaultKubeEdgeVersion is the default KubeEdge version, it must have no prefix 'v'
-	DefaultKubeEdgeVersion = "1.19.0"
+	DefaultKubeEdgeVersion = "1.20.0"
 
 	// Helm action
 	HelmInstallAction  = "install"
@@ -305,4 +305,11 @@ const (
 	FlagNameTTY                          = "tty"
 	FlagNameShowEvents                   = "show-events"
 	FlagNameChunkSize                    = "chunk-size"
+)
+
+const (
+	PodAPIVersion    = "v1"
+	PodKind          = "Pod"
+	DeviceAPIVersion = "devices.kubeedge.io/v1beta1"
+	DeviceKind       = "Device"
 )
