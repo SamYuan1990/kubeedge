@@ -50,16 +50,16 @@ jobs:
           dirpath: '/workdir'
           deploymentfile: /workdir/${{ matrix.PATH }}
           runType: CVE2Deployment
-      - name: output check
-        shell: bash
-        run: |
-          echo '${{ steps.Lint_with_LLM.outputs.LLMresponse }}'
-          echo '${{ steps.Lint_with_LLM.outputs.final_prompt }}'
-          echo '${{ steps.Lint_with_LLM.outputs.avg_prompt_precent }}'
-          echo '${{ steps.Lint_with_LLM.outputs.avg_content_precent }}'
-          echo '${{ steps.Lint_with_LLM.outputs.avg_time_usage }}'
-          echo '${{ steps.Lint_with_LLM.outputs.avg_inputToken }}'
-          echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
+      #- name: output check
+      #  shell: bash
+      #  run: |
+      #    echo '${{ steps.Lint_with_LLM.outputs.LLMresponse }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.final_prompt }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.avg_prompt_precent }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.avg_content_precent }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.avg_time_usage }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.avg_inputToken }}'
+      #    echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
 
       - name: output folder structure
         shell: bash
