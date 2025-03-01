@@ -66,7 +66,7 @@ jobs:
         run: |
           ls
           ls ./GenAI_output
-          cat 'REPORT_BODY<<EOF' >> $GITHUB_ENV
+          echo 'REPORT_BODY<<EOF' >> $GITHUB_ENV
           cat ./GenAI_output/summary.json >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV 
 
