@@ -61,15 +61,6 @@ jobs:
       #    echo '${{ steps.Lint_with_LLM.outputs.avg_inputToken }}'
       #    echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
 
-      - name: output folder structure
-        shell: bash
-        run: |
-          ls
-          ls ./GenAI_output
-          echo 'REPORT_BODY<<EOF' >> $GITHUB_ENV
-          cat ./GenAI_output/summary.json >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV 
-
       - name: Create new issue
         uses: imjohnbo/issue-bot@v3
         if: ${{ inputs.dryrun == false }}
@@ -77,4 +68,4 @@ jobs:
           title: CVE cross check with deployment on container image ${{matrix.IMAGE}}
           body: |-
             :wave: Hi maintainers, here is LLM's deployment suggested according to your CVSS scan result.
-            ${{ env.REPORT_BODY }}
+            ${{ steps.Lint_with_LLM.outputs.LLMresponse }}
