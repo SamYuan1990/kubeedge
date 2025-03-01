@@ -1,12 +1,6 @@
 name: CVE to Deployment
 on: # yamllint disable-line rule:truthy
   workflow_dispatch:
-    inputs:
-      dryrun:
-        description: 'running mode'
-        required: true
-        default: true
-        type: boolean
 
 permissions: write-all
 
@@ -56,7 +50,6 @@ jobs:
           dirpath: '/workdir'
           deploymentfile: /workdir/${{ matrix.PATH }}
           runType: CVE2Deployment
-          dryRun: ${{ inputs.dryrun }}
       - name: output check
         shell: bash
         run: |
