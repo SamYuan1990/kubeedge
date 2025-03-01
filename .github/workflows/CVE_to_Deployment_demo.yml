@@ -66,6 +66,9 @@ jobs:
         run: |
           ls
           ls ./GenAI_output
+          cat 'REPORT_BODY<<EOF' >> $GITHUB_ENV
+          $(jq -r -e .LLMresponse $(pwd)/GenAI_output/summary.json) >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV 
 
       - name: Create new issue
         uses: imjohnbo/issue-bot@v3
@@ -74,4 +77,4 @@ jobs:
           title: CVE cross check with deployment on container image ${{matrix.IMAGE}}
           body: |-
             :wave: Hi maintainers, here is LLM's deployment suggested according to your CVSS scan result.
-            ${{ steps.Lint_with_LLM.outputs.LLMresponse }}
+            ${{ env.REPORT_BODY }}
