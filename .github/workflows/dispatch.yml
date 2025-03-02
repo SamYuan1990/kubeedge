@@ -33,16 +33,27 @@ jobs:
           make test PROFILE=y
           wget https://raw.githubusercontent.com/SamYuan1990/OpenAI_CodeAgent-action/refs/heads/main/goASTBin -O ./goASTBin && chmod a+x ./goASTBin
 
-      - name: Test Local Action
-        id: test-action
+      - name: add doc with LLM
+        id: Lint_with_LLM
         uses: SamYuan1990/OpenAI_CodeAgent-action@main
         with:
           baseURL: https://api.deepseek.com
-          apiKey: ${{ secrets.API_KEY }}
           model: deepseek-chat
-          dirPath: ./
-          maxIterations: 3
+          dirPath: '/workdir'
+          maxIterations: 1
           runType: godoc
+          apiKey: ${{ secrets.API_KEY }}
+
+      - name: output check
+        shell: bash
+        run: |
+          echo '${{ steps.Lint_with_LLM.outputs.LLMresponse }}'
+          echo '${{ steps.Lint_with_LLM.outputs.final_prompt }}'
+          echo '${{ steps.Lint_with_LLM.outputs.avg_prompt_precent }}'
+          echo '${{ steps.Lint_with_LLM.outputs.avg_content_precent }}'
+          echo '${{ steps.Lint_with_LLM.outputs.avg_time_usage }}'
+          echo '${{ steps.Lint_with_LLM.outputs.avg_inputToken }}'
+          echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
