@@ -1,4 +1,4 @@
-name: Dispatch Trigger as expirement for SamYuan1990/OpenAI_CodeAgent-action
+name: Mark up go doc Demo
 
 on:
   workflow_dispatch:
@@ -43,11 +43,6 @@ jobs:
           dirPath: ./
           maxIterations: 3
           runType: godoc
-
-      - name: cleanup
-        id: cleanup
-        run: |
-          rm -rf ./goASTBin
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
