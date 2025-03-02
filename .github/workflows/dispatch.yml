@@ -40,26 +40,29 @@ jobs:
           baseURL: https://api.deepseek.com
           model: deepseek-chat
           dirPath: '/workdir'
-          maxIterations: 1
+          maxIterations: 10
           runType: godoc
           apiKey: ${{ secrets.API_KEY }}
 
       - name: output check
         shell: bash
         run: |
-          echo '${{ steps.Lint_with_LLM.outputs.LLMresponse }}'
-          echo '${{ steps.Lint_with_LLM.outputs.final_prompt }}'
+          echo avg_prompt_precent
           echo '${{ steps.Lint_with_LLM.outputs.avg_prompt_precent }}'
+          echo avg_content_precent
           echo '${{ steps.Lint_with_LLM.outputs.avg_content_precent }}'
+          echo avg_time_usage
           echo '${{ steps.Lint_with_LLM.outputs.avg_time_usage }}'
+          echo avg_inputToken
           echo '${{ steps.Lint_with_LLM.outputs.avg_inputToken }}'
+          echo avg_outputToken
           echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.MyPATToken }} # 使用 GitHub 提供的 token
-          branch: auto-pr-branch # 新分支名称
+          branch: auto-pr-branch-0302 # 新分支名称
           base: master # 目标分支
           title: 'Automated PR: Update generated files with go doc'
           body: 'This is an automated pull request created by GitHub Actions.'
