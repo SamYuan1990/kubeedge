@@ -69,9 +69,9 @@ jobs:
         id: clean_up
         shell: bash
         run: |
-          rm -rf GenAI_output
-          rm -rf goASTBin
-          rm -rf golangAST.json
+          sudo rm -rf GenAI_output
+          sudo rm -rf goASTBin
+          sudo rm -rf golangAST.json
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
