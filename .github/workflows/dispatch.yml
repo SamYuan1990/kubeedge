@@ -66,7 +66,7 @@ jobs:
           path: GenAI_output/
 
       - name: clean up process log
-        id: clean up
+        id: clean_up
         shell: bash
         run: |
           rm -rf GenAI_output
