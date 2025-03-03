@@ -16,6 +16,20 @@ type Keeper struct {
 }
 
 // NewKeeper new keeper
+// Comments below is assisted by Gen AI
+// // NewKeeper creates and returns a new instance of Keeper.
+// The Keeper is initialized with an empty map for syncKeeper,
+// where the keys are strings and the values are channels of model.Message.
+// This function is typically used to initialize a Keeper before it is used
+// to manage communication channels for different keys.
+//
+// Example usage:
+//
+//	keeper := NewKeeper()
+//	// Now you can use keeper to manage channels for different keys.
+//
+// Returns:
+//   - *Keeper: A pointer to the newly created Keeper instance.
 func NewKeeper() *Keeper {
 	return &Keeper{
 		syncKeeper: make(map[string]chan model.Message),
