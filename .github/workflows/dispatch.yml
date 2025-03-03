@@ -58,6 +58,21 @@ jobs:
           echo avg_outputToken
           echo '${{ steps.Lint_with_LLM.outputs.avg_outputToken }}'
 
+      - name: Upload Artifact for process log
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: GenAI_output
+          path: GenAI_output/
+
+      - name: clean up process log
+        id: clean up
+        shell: bash
+        run: |
+          rm -rf GenAI_output
+          rm -rf goASTBin
+          rm -rf golangAST.json
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
