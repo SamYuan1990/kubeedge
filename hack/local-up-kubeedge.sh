@@ -135,7 +135,7 @@ function kind_up_cluster {
   if [[ "${KIND_NETWORK}" = "default" ]]; then
     kind create cluster ${CLUSTER_CONTEXT} --image ${KIND_IMAGE}
   else
-    kind create cluster ${CLUSTER_CONTEXT} --image ${KIND_IMAGE} --config=${KUBEEDGE_ROOT}/hack/kind_config/${KIND_NETWORK}.yaml
+    kind create cluster ${CLUSTER_CONTEXT} --image ${KIND_IMAGE} --config ${KUBEEDGE_ROOT}/hack/kind_config/${KIND_NETWORK}.yaml
   fi
 }
 
