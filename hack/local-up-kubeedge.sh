@@ -157,7 +157,7 @@ function cleanup {
   uninstall_kubeedge
 
   echo "Running kind: [kind delete cluster ${CLUSTER_CONTEXT}]"
-  kind delete cluster ${CLUSTER_CONTEXT}
+  kind delete cluster ${CLUSTER_CONTEXT} || true
 
 }
 
