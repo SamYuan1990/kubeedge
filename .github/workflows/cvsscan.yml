@@ -39,7 +39,7 @@ jobs:
         with:
           baseURL: https://api.deepseek.com
           model: deepseek-chat
-          dirPath: '/workdir/pkg'
+          dirPath: '/workdir'
           runType: CVEDependency
           apiKey: ${{ secrets.API_KEY }}
           dryRun: true
