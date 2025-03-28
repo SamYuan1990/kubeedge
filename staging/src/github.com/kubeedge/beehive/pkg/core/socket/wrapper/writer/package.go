@@ -19,6 +19,18 @@ type PackageWriter struct {
 }
 
 // NewPackageWriter new package writer
+// Comments below is assisted by Gen AI
+// // NewPackageWriter creates and returns a new PackageWriter instance initialized with the provided object.
+// The function expects the input object to implement the net.Conn interface. If the object is a valid net.Conn,
+// it initializes a new PackageWriter with the connection and a new packer.Packer instance.
+// If the object does not implement net.Conn, the function logs an error using klog.Errorf and returns nil.
+//
+// Parameters:
+//   - obj: The object to be used as the connection. It must implement the net.Conn interface.
+//
+// Returns:
+//   - *PackageWriter: A pointer to a new PackageWriter instance if the input object is a valid net.Conn.
+//   - nil: If the input object is not a valid net.Conn.
 func NewPackageWriter(obj interface{}) *PackageWriter {
 	if conn, ok := obj.(net.Conn); ok {
 		packer := packer.NewPacker()
