@@ -1,0 +1,12 @@
+{
+  "model": "deepseek-chat",
+  "final_prompt": "please help generate go doc for this function, \nfunc StartServer(address string) {\n\tuds := NewUnixDomainSocket(address)\n\tuds.SetContextHandler(func(context string) string {\n\t\t// receive message from client\n\t\tklog.Infof(\"uds server receives context: %s\", context)\n\t\tmsg, err := ExtractMessage(context)\n\t\tif err != nil {\n\t\t\tklog.Errorf(\"Failed to extract message: %v\", err)\n\t\t\treturn feedbackError(err, msg)\n\t\t}\n\n\t\t// Send message to edge\n\t\tresp, err := beehiveContext.SendSync(hubmodel.SrcCloudHub, *msg, constants.CSISyncMsgRespTimeout)\n\t\tif err != nil {\n\t\t\tklog.Errorf(\"failed to send message to edge: %v\", err)\n\t\t\treturn feedbackError(err, msg)\n\t\t}\n\t\t// Marshal response message\n\t\tdata, err := json.Marshal(resp)\n\t\tif err != nil {\n\t\t\tklog.Errorf(\"marshal response failed with error: %v\", err)\n\t\t\treturn feedbackError(err, msg)\n\t\t}\n\t\tklog.Infof(\"uds server send back data: %s resp: %v\", string(data), resp)\n\t\treturn string(data)\n\t})\n\n\tklog.Info(\"start unix domain socket server\")\n\tif err := uds.StartServer(); err != nil {\n\t\tklog.Exitf(\"failed to start uds server: %v\", err)\n\t\treturn\n\t}\n}",
+  "hashValue": "7ec4d21209f20138f53f736f213e9511ce7c9c7e0b60230f97bde45a0dc8795a",
+  "response": "",
+  "prompt_precent": 4.315886134067952,
+  "content_precent": 95.59228650137742,
+  "meta": {
+    "filename": "cloud/pkg/cloudhub/servers/udsserver/server.go",
+    "functionname": "StartServer"
+  }
+}

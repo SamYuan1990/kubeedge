@@ -1,0 +1,12 @@
+{
+  "model": "deepseek-chat",
+  "final_prompt": "please help generate go doc for this function, \nfunc (g *group) V1alpha1() v1alpha1.Interface {\n\treturn v1alpha1.New(g.factory, g.namespace, g.tweakListOptions)\n}",
+  "hashValue": "2b30696ec540f9c72c609c7467febb22979a710dcede01773ef1a2ca4e6c0577",
+  "response": "",
+  "prompt_precent": 29.01234567901235,
+  "content_precent": 70.37037037037037,
+  "meta": {
+    "filename": "staging/src/github.com/kubeedge/api/client/informers/externalversions/reliablesyncs/interface.go",
+    "functionname": "V1alpha1"
+  }
+}

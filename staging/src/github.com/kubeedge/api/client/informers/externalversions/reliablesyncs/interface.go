@@ -36,6 +36,17 @@ type group struct {
 }
 
 // New returns a new Interface.
+// Comments below is assisted by Gen AI
+// // New creates and returns a new instance of an Interface that implements the group functionality.
+// It initializes the group with the provided SharedInformerFactory, namespace, and TweakListOptionsFunc.
+//
+// Parameters:
+//   - f: The SharedInformerFactory used to create shared informers for the group.
+//   - namespace: The namespace to which the group is scoped. If empty, the group is not namespace-scoped.
+//   - tweakListOptions: A TweakListOptionsFunc that allows customization of list options for the informers.
+//
+// Returns:
+//   - An Interface that provides access to the group's informers and other functionalities.
 func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {
 	return &group{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
 }
